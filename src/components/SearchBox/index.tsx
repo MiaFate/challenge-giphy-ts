@@ -1,18 +1,23 @@
-import React,{useState} from 'react';
+import React, {useState} from 'react';
 import { Stack, IconButton, Input } from '@chakra-ui/react';
 import { useGlobalContext } from '../../context';
 import { SearchIcon } from '@chakra-ui/icons';
 
-function SearchBox({ placeholder}) {
+interface SearchBoxProps{
+    placeholder: string;
+}
+
+const SearchBox = ({ placeholder}:SearchBoxProps) => {
 const { setQuery } = useGlobalContext();
 const [inputValue, setInputValue]=useState("")
     
 
-    const handleChange = (e) => {
-        const input = e.target.value.toLowerCase();
+    const handleChange = (e:React.ChangeEvent) => {
+        const { value } = e.target as HTMLInputElement;
+        const input = value.toLowerCase();
         setInputValue(input);
     };
-    const handleSubmit= (e) => {
+    const handleSubmit= (e:React.FormEvent) => {
         e.preventDefault();
         setQuery(inputValue);
     };

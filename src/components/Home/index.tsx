@@ -1,6 +1,8 @@
 import { useEffect, lazy, Suspense } from "react";
-import SearchBox from "../SearchBox/index.jsx";
+import SearchBox from "../SearchBox";
+// @ts-ignore
 const Cards = lazy(() => import("../Cards"));
+// @ts-ignore
 import Loader from "../Loader";
 import { Flex } from '@chakra-ui/react';
 import { useNavigate } from "react-router-dom";
@@ -17,7 +19,7 @@ const Home = () => {
             navigate("/");
         }
     });
-
+// @ts-ignore
     const ErrorFallback = ({ error }) => {
         console.log(error)
         return (
@@ -36,7 +38,9 @@ const Home = () => {
                     <Suspense fallback={<Loader />}>
                         <SWRConfig
                             value={{
+                                // @ts-ignore
                                 fetcher: (...args) =>
+                                // @ts-ignore
                                     fetch(...args).then((res) => {
                                         if (res.ok) {
                                             return res.json();

@@ -1,4 +1,9 @@
-const users=[
+
+type objetos ={
+    username:string;
+    password:string;
+}
+const users:objetos[]=[
     {
         "username": "admin",
         "password": "admin1236"

@@ -1,22 +1,15 @@
-import React, { Suspense, lazy } from "react"
+import { Suspense, lazy } from "react"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { ErrorBoundary } from "react-error-boundary"
 import { Box, ChakraProvider, ColorModeScript, Flex } from "@chakra-ui/react"
 import theme from "./theme"
 import { GlobalProvider } from "./context"
-// @ts-ignore
-//const Login = lazy(() => import("./components/Login"))
-import Login from "./components/Login";
 
-// @ts-ignore
-//const Loader = lazy(() => import("./components/Loader"))
-import Loader from "./components/Loader";
-// @ts-ignore
-//const Detail = lazy(() => import("./components/Detail"))
-import Detail from "./components/Detail";
-// @ts-ignore
-//const Home = lazy(() => import("./components/Home"))
-import Home from "./components/Home";
+const Login = lazy(() => import("./components/Login"))
+const Loader = lazy(() => import("./components/Loader"))
+const Detail = lazy(() => import("./components/Detail"))
+const Home = lazy(() => import("./components/Home"))
+
 
 function App() {
   const ErrorFallback = () => {

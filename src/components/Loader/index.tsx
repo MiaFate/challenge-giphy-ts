@@ -1,7 +1,7 @@
-import React from 'react'
+
 import { Box, Center, CircularProgress} from '@chakra-ui/react';
 
-const Loader = () => {
+const Loader = ():JSX.Element => {
     return (
         <Center>
             <Box height={'100vh'}>

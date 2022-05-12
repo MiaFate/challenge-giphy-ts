@@ -3,7 +3,13 @@ import { useLocation } from 'react-router-dom';
 import { getGifById } from '../../helpers/fetchs';
 
 const Detail = () => {
-    const { state } = useLocation();
+    type LocationStateProps = {
+        title: string;
+        url: string;
+    }
+
+    const location = useLocation();
+    const state = location.state as LocationStateProps;
     const [{ title, url }, setData] = useState({ title: "title", url: "url" });
 
     useEffect(() => {
@@ -17,16 +23,16 @@ const Detail = () => {
     }, [state]);
 
     const fetchMissingData = async () => {
-        try {
+        /* try { */
 
-            const id = location.pathname.split("/")[2];
-            const response = await getGifById(id);
-            const { title, images: { downsized: { url } } } = response;
-            setData({ title, url })
+        const id = location.pathname.split("/")[2];
+        const response = await getGifById(id);
+        const { title, images: { downsized: { url } } } = response;
+        setData({ title, url })
 
-        } catch (error) {
+        /* } catch (error) {
             console.log(error.message)
-        }
+        } */
     };
 
     return (

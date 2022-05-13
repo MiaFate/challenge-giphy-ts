@@ -24,7 +24,7 @@ const Cards = () => {
     if (query == "") {
       return `https://api.giphy.com/v1/gifs/trending?api_key=${import.meta.env.VITE_APIKEY}&limit=25&rating=g`;
     } else {
-      return `https://api.giphy.com/v1/gifs/search?api_key=${import.meta.env.VITE_APIKEY}aa&q=${query}&limit=25&offset=0&rating=g&lang=en`;
+      return `https://api.giphy.com/v1/gifs/search?api_key=${import.meta.env.VITE_APIKEY}&q=${query}&limit=25&offset=0&rating=g&lang=en`;
     }
   }
 

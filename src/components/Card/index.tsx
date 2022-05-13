@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { Image, Flex } from '@chakra-ui/react';
-import React from 'react';
 interface cardProp {
     gif: {
         id: string,

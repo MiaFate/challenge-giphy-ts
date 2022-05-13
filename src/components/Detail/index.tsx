@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom';
 import { getGifById } from '../../helpers/fetchs';
 
-const Detail = () => {
+const Detail = ():JSX.Element => {
     type LocationStateProps = {
         title: string;
         url: string;
@@ -23,16 +23,10 @@ const Detail = () => {
     }, [state]);
 
     const fetchMissingData = async () => {
-        /* try { */
-
         const id = location.pathname.split("/")[2];
         const response = await getGifById(id);
         const { title, images: { downsized: { url } } } = response;
         setData({ title, url })
-
-        /* } catch (error) {
-            console.log(error.message)
-        } */
     };
 
     return (

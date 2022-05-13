@@ -1,4 +1,3 @@
-import React from 'react';
 import Card from '../Card';
 import { Grid } from '@chakra-ui/react';
 import useSWR from 'swr';
@@ -9,14 +8,6 @@ import uuid from 'react-uuid';
 const Cards = () => {
 
   const { query } = useGlobalContext();
-  const key = (query: string) => {
-    if (query == "") {
-      return `https://api.giphy.com/v1/gifs/trending?api_key=${import.meta.env.VITE_APIKEY}&limit=25&rating=g`;
-    } else {
-      return `https://api.giphy.com/v1/gifs/search?api_key=${import.meta.env.VITE_APIKEY}&q=${query}&limit=25&offset=0&rating=g&lang=en`;
-    }
-  }
-
   interface Gif {
     id: string;
     title: string;
@@ -27,6 +18,14 @@ const Cards = () => {
         url: string;
       };
     };
+  }
+
+  const key = (query: string) => {
+    if (query == "") {
+      return `https://api.giphy.com/v1/gifs/trending?api_key=${import.meta.env.VITE_APIKEY}&limit=25&rating=g`;
+    } else {
+      return `https://api.giphy.com/v1/gifs/search?api_key=${import.meta.env.VITE_APIKEY}aa&q=${query}&limit=25&offset=0&rating=g&lang=en`;
+    }
   }
 
   const { data: { data } } = useSWR(key(query), { suspense: true });

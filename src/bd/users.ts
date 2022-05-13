@@ -1,9 +1,9 @@
 
-type objetos ={
+type Usuarios ={
     username:string;
     password:string;
 }
-const users:objetos[]=[
+const users:Usuarios[]=[
     {
         "username": "admin",
         "password": "admin1236"
